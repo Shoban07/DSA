@@ -1,0 +1,7 @@
+C:\Users\shobankumar.r\source\Repos\DSA\Reversecharacters\bin\Debug\Reversecharacters.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\Reversecharacters\bin\Debug\Reversecharacters.exe
+C:\Users\shobankumar.r\source\Repos\DSA\Reversecharacters\bin\Debug\Reversecharacters.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\Reversecharacters\obj\Debug\Reversecharacters.csprojAssemblyReference.cache
+C:\Users\shobankumar.r\source\Repos\DSA\Reversecharacters\obj\Debug\Reversecharacters.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\Reversecharacters\obj\Debug\Reversecharacters.exe
+C:\Users\shobankumar.r\source\Repos\DSA\Reversecharacters\obj\Debug\Reversecharacters.pdb

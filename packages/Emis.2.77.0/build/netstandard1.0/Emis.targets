@@ -1,0 +1,6 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<EmisDevelopmentPath>$(MSBuildThisFileDirectory)..\..\tools\net\</EmisDevelopmentPath>
+	</PropertyGroup>
+	<Import Project="..\Emis.WeavingAndWebRazorGenerators.targets"/>
+</Project>

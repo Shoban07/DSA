@@ -1,0 +1,7 @@
+C:\Users\shobankumar.r\source\Repos\DSA\ArrayNesting\bin\Debug\ArrayNesting.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\ArrayNesting\bin\Debug\ArrayNesting.exe
+C:\Users\shobankumar.r\source\Repos\DSA\ArrayNesting\bin\Debug\ArrayNesting.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\ArrayNesting\obj\Debug\ArrayNesting.csprojAssemblyReference.cache
+C:\Users\shobankumar.r\source\Repos\DSA\ArrayNesting\obj\Debug\ArrayNesting.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\ArrayNesting\obj\Debug\ArrayNesting.exe
+C:\Users\shobankumar.r\source\Repos\DSA\ArrayNesting\obj\Debug\ArrayNesting.pdb

@@ -1,0 +1,115 @@
+<Dictionary>
+	<Words>
+		<Recognized>
+			<Word>actioned</Word>
+			<Word>anonymised</Word>
+			<Word>api</Word>
+			<Word>authorisation</Word>
+			<Word>authorised</Word>
+			<Word>authorising</Word>
+			<Word>bnf</Word>
+			<Word>callback</Word>
+			<Word>cancellation</Word>
+			<Word>cancelled</Word>
+			<Word>carer</Word>
+			<Word>carers</Word>
+			<Word>catalog</Word>
+			<Word>center</Word>
+			<Word>centile</Word>
+			<Word>centiles</Word>
+			<Word>color</Word>
+			<Word>cytotoxic</Word>
+			<Word>deserialise</Word>
+			<Word>deserialiser</Word>
+			<Word>ebxml</Word>
+			<Word>egton</Word>
+			<Word>emis</Word>
+			<Word>encryptor</Word>
+			<Word>enumerables</Word>
+			<Word>episodicity</Word>
+			<Word>fallback</Word>
+			<Word>fsharp</Word>
+			<Word>graphable</Word>
+			<Word>haemoglobin</Word>
+			<Word>immunisations</Word>
+			<Word>initialise</Word>
+			<Word>initialised</Word>
+			<Word>intermodule</Word>
+			<Word>markup</Word>
+			<Word>malabsorption</Word>
+			<Word>memoize</Word>
+			<Word>methotrexate</Word>
+			<Word>mkb</Word>
+			<Word>mr</Word>
+			<Word>mrs</Word>
+			<Word>ms</Word>
+			<Word>multi</Word>
+			<Word>multicall</Word>
+			<Word>multiselect</Word>
+			<Word>nhs</Word>
+			<Word>nonconfidential</Word>
+			<Word>nonresolvable</Word>
+			<Word>nonsequential</Word>
+			<Word>nuget</Word>
+			<Word>oestrogen</Word>
+			<Word>organisation</Word>
+			<Word>organisations</Word>
+			<Word>overrider</Word>
+			<Word>parkinsons</Word>
+			<Word>percent</Word>
+			<Word>plugin</Word>
+			<Word>poco</Word>
+			<Word>poller</Word>
+			<Word>populator</Word>
+			<Word>postdated</Word>
+			<Word>precis</Word>
+			<Word>prerelease</Word>
+			<Word>preset</Word>
+			<Word>reauthorise</Word>
+			<Word>reauthorised</Word>
+			<Word>recognised</Word>
+			<Word>recouple</Word>
+			<Word>recoupled</Word>
+			<Word>recoupling</Word>
+			<Word>rfc</Word>
+			<Word>serialisable</Word>
+			<Word>serialise</Word>
+			<Word>serialiser</Word>
+			<Word>sha</Word>
+			<Word>synchronisation</Word>
+			<Word>synchronise</Word>
+			<Word>synchronised</Word>
+			<Word>synchronising</Word>
+			<Word>trendable</Word>
+			<Word>unarchive</Word>
+			<Word>unarchived</Word>
+			<Word>uncancelled</Word>
+			<Word>uncoded</Word>
+			<Word>uncombine</Word>
+			<Word>undecease</Word>
+			<Word>unfile</Word>
+			<Word>unrecognised</Word>
+			<Word>uploader</Word>
+			<Word>valvular</Word>
+			<Word>visualisation</Word>
+		</Recognized>
+		<Unrecognized>
+			<Word>canceled</Word>
+			<Word>torun</Word>
+			<Word>whereby</Word>
+		</Unrecognized>
+		<Deprecated>
+			<Term PreferredAlternate="cancelled">canceled</Term>
+		</Deprecated>
+		<Compound>
+			<Term CompoundAlternate="NonDrug">NonDrug</Term>
+			<Term CompoundAlternate="PreRegistration">PreRegistration</Term>
+			<Term CompoundAlternate="ReRegister">ReRegister</Term>
+			<Term CompoundAlternate="ScriptSwitch">ScriptSwitch</Term>
+			<Term CompoundAlternate="ServicePerson">serviceperson</Term>
+			<Term CompoundAlternate="ToDays">ToDays</Term>
+			<Term CompoundAlternate="WebPage">WebPage</Term>
+			<Term CompoundAlternate="WhereTo">WhereTo</Term>
+		</Compound>
+	</Words>
+</Dictionary>

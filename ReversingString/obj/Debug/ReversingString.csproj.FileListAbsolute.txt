@@ -1,0 +1,7 @@
+C:\Users\shobankumar.r\source\Repos\DSA\ReversingString\bin\Debug\ReversingString.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\ReversingString\bin\Debug\ReversingString.exe
+C:\Users\shobankumar.r\source\Repos\DSA\ReversingString\bin\Debug\ReversingString.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\ReversingString\obj\Debug\ReversingString.csprojAssemblyReference.cache
+C:\Users\shobankumar.r\source\Repos\DSA\ReversingString\obj\Debug\ReversingString.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\ReversingString\obj\Debug\ReversingString.exe
+C:\Users\shobankumar.r\source\Repos\DSA\ReversingString\obj\Debug\ReversingString.pdb

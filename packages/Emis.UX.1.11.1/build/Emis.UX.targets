@@ -1,0 +1,8 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="EmisRemoveResourceReferenceSatellitePaths" AfterTargets="ResolveAssemblyReferences">
+		<ItemGroup>
+			<EmisResourceReferenceSatellitePaths Include="%(ReferenceSatellitePaths.Identity)" Condition="'@(ReferenceSatellitePaths->EndsWith('.resources.dll'))'=='true'"/>
+			<ReferenceCopyLocalPaths Remove="@(EmisResourceReferenceSatellitePaths)"/>
+		</ItemGroup>
+	</Target>
+</Project>

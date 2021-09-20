@@ -1,0 +1,7 @@
+C:\Users\shobankumar.r\source\Repos\DSA\ReverseInteger\bin\Debug\ReverseInteger.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\ReverseInteger\bin\Debug\ReverseInteger.exe
+C:\Users\shobankumar.r\source\Repos\DSA\ReverseInteger\bin\Debug\ReverseInteger.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\ReverseInteger\obj\Debug\ReverseInteger.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\ReverseInteger\obj\Debug\ReverseInteger.exe
+C:\Users\shobankumar.r\source\Repos\DSA\ReverseInteger\obj\Debug\ReverseInteger.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\ReverseInteger\obj\Debug\ReverseInteger.csprojAssemblyReference.cache

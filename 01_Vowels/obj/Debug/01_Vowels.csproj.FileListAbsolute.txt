@@ -1,0 +1,7 @@
+C:\Users\shobankumar.r\source\Repos\DSA\01_Vowels\bin\Debug\01_Vowels.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\01_Vowels\bin\Debug\01_Vowels.exe
+C:\Users\shobankumar.r\source\Repos\DSA\01_Vowels\bin\Debug\01_Vowels.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\01_Vowels\obj\Debug\01_Vowels.csprojAssemblyReference.cache
+C:\Users\shobankumar.r\source\Repos\DSA\01_Vowels\obj\Debug\01_Vowels.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\01_Vowels\obj\Debug\01_Vowels.exe
+C:\Users\shobankumar.r\source\Repos\DSA\01_Vowels\obj\Debug\01_Vowels.pdb

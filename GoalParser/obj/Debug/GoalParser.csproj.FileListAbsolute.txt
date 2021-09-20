@@ -1,0 +1,6 @@
+C:\Users\shobankumar.r\source\Repos\DSA\GoalParser\bin\Debug\GoalParser.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\GoalParser\bin\Debug\GoalParser.exe
+C:\Users\shobankumar.r\source\Repos\DSA\GoalParser\bin\Debug\GoalParser.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\GoalParser\obj\Debug\GoalParser.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\GoalParser\obj\Debug\GoalParser.exe
+C:\Users\shobankumar.r\source\Repos\DSA\GoalParser\obj\Debug\GoalParser.pdb

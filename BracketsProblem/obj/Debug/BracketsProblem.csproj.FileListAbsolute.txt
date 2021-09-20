@@ -1,0 +1,7 @@
+C:\Users\shobankumar.r\source\Repos\DSA\BracketsProblem\bin\Debug\BracketsProblem.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\BracketsProblem\bin\Debug\BracketsProblem.exe
+C:\Users\shobankumar.r\source\Repos\DSA\BracketsProblem\bin\Debug\BracketsProblem.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\BracketsProblem\obj\Debug\BracketsProblem.csprojAssemblyReference.cache
+C:\Users\shobankumar.r\source\Repos\DSA\BracketsProblem\obj\Debug\BracketsProblem.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\BracketsProblem\obj\Debug\BracketsProblem.exe
+C:\Users\shobankumar.r\source\Repos\DSA\BracketsProblem\obj\Debug\BracketsProblem.pdb

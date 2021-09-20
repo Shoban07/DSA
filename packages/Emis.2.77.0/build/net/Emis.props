@@ -1,0 +1,52 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="EmisBeforeBuild" BeforeTargets="BeforeBuild">
+		<Error Condition="'$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == ''" Text="A Visual Studio version of at least 11 (2012) is required." />
+		<Error Condition="$(OutputPath.StartsWith($(TeamBuildOutDir))) and $(TeamBuildOutDir) != ''" Text="The OutputPath project property is being overridden with TeamBuildOutDir when specified. This is unnecessary and must be removed." />
+	</Target>
+	<PropertyGroup>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<CfgPropertyPagesGuidsAddCSharp>{5162FA87-DE12-4ED3-BD51-73EE0B41B57D}</CfgPropertyPagesGuidsAddCSharp>
+		<CodeAnalysisCulture>en-GB</CodeAnalysisCulture>
+		<CodeContractsImported>true</CodeContractsImported>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<EmisDevelopmentPath>$(MSBuildThisFileDirectory)..\..\tools\net\</EmisDevelopmentPath>
+		<EmisPostProjectPropertyImportPath>$(MSBuildThisFileDirectory)Emis.PostProject.props</EmisPostProjectPropertyImportPath>
+		<ErrorReport>prompt</ErrorReport>
+		<FileAlignment>512</FileAlignment>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<RestorePackages>true</RestorePackages>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<SourceAnalysisTreatErrorsAsWarnings>false</SourceAnalysisTreatErrorsAsWarnings>
+		<StyleCopEnabled>true</StyleCopEnabled>
+		<StyleCopOverrideSettingsFile>$(MSBuildThisFileDirectory)StyleCop\Settings.StyleCop</StyleCopOverrideSettingsFile>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration) == 'Debug'">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<DefineConstants>DEBUG;TRACE;CODE_ANALYSIS</DefineConstants>
+		<Optimize>false</Optimize>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration) == 'Code Contracts'">
+		<CodeContractsImported>false</CodeContractsImported>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<DefineConstants>DEBUG;TRACE;CODE_ANALYSIS</DefineConstants>
+		<Optimize>false</Optimize>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration) == 'No Analysis'">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<Optimize>false</Optimize>
+		<StyleCopEnabled>false</StyleCopEnabled>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration) == 'Release'">
+		<DebugType>pdbonly</DebugType>
+		<DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
+		<Optimize>true</Optimize>
+	</PropertyGroup>
+	<Import Project="CodeAnalysis\Emis.CodeAnalysis.props" />
+</Project>

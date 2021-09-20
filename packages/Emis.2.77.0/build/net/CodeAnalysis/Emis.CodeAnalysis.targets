@@ -1,0 +1,42 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<CodeAnalysisDictionary Include="$(MSBuildThisFileDirectory)CustomDictionary.xml">
+			<Link>CustomDictionary.xml</Link>
+		</CodeAnalysisDictionary>
+	</ItemGroup>
+	<Choose>
+		<When Condition="'$(TestProjectType)' == 'UnitTest'">
+			<PropertyGroup>
+				<CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)UnitTest.ruleset</CodeAnalysisRuleSet>
+			</PropertyGroup>
+		</When>
+		<When Condition="'$(CodeContractsEnabled)' == 'true'">
+			<PropertyGroup>
+				<CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Deployed.ruleset</CodeAnalysisRuleSet>
+			</PropertyGroup>
+		</When>
+		<Otherwise>
+			<PropertyGroup>
+				<CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)DeployedWithoutCodeContracts.ruleset</CodeAnalysisRuleSet>
+			</PropertyGroup>
+		</Otherwise>
+	</Choose>
+	<Choose>
+		<When Condition="$(EmisDevelopmentPath) != ''">
+			<PropertyGroup>
+				<EmisCodeAnalysisAssemblyPath>$(EmisDevelopmentPath)</EmisCodeAnalysisAssemblyPath>
+			</PropertyGroup>
+		</When>
+		<Otherwise>
+			<PropertyGroup>
+				<EmisCodeAnalysisAssemblyPath>$(MSBuildThisFileDirectory)</EmisCodeAnalysisAssemblyPath>
+			</PropertyGroup>
+		</Otherwise>
+	</Choose>
+	<PropertyGroup>
+		<CodeAnalysisAdditionalOptions>/assemblycomparemode:StrongNameIgnoringVersion /rule:"-$(EmisCodeAnalysisAssemblyPath)Emis.CodeAnalysis.VisualStudio.$(VisualStudioVersion).dll"</CodeAnalysisAdditionalOptions>
+	</PropertyGroup>
+	<Target BeforeTargets="AfterBuild" Condition="$(Configuration) == 'No Analysis'" Name="EmisCodeAnalysisInNoAnalysisConfigurationCheck">
+		<Warning Condition="$(RunCodeAnalysis)" Text="Code Analysis is running even though the build is in the 'No Analysis' configuration."/>
+	</Target>
+</Project>

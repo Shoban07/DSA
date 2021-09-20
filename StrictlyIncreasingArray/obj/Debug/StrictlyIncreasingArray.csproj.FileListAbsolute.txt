@@ -1,0 +1,7 @@
+C:\Users\shobankumar.r\source\Repos\DSA\StrictlyIncreasingArray\bin\Debug\StrictlyIncreasingArray.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\StrictlyIncreasingArray\bin\Debug\StrictlyIncreasingArray.exe
+C:\Users\shobankumar.r\source\Repos\DSA\StrictlyIncreasingArray\bin\Debug\StrictlyIncreasingArray.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\StrictlyIncreasingArray\obj\Debug\StrictlyIncreasingArray.csprojAssemblyReference.cache
+C:\Users\shobankumar.r\source\Repos\DSA\StrictlyIncreasingArray\obj\Debug\StrictlyIncreasingArray.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\StrictlyIncreasingArray\obj\Debug\StrictlyIncreasingArray.exe
+C:\Users\shobankumar.r\source\Repos\DSA\StrictlyIncreasingArray\obj\Debug\StrictlyIncreasingArray.pdb

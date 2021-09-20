@@ -1,0 +1,8 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<RunCodeAnalysis>true</RunCodeAnalysis>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration) == 'No Analysis'">
+		<RunCodeAnalysis>false</RunCodeAnalysis>
+	</PropertyGroup>
+</Project>

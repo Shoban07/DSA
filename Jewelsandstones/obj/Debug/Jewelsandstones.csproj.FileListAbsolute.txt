@@ -1,0 +1,7 @@
+C:\Users\shobankumar.r\source\Repos\DSA\Jewelsandstones\bin\Debug\Jewelsandstones.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\Jewelsandstones\bin\Debug\Jewelsandstones.exe
+C:\Users\shobankumar.r\source\Repos\DSA\Jewelsandstones\bin\Debug\Jewelsandstones.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\Jewelsandstones\obj\Debug\Jewelsandstones.csprojAssemblyReference.cache
+C:\Users\shobankumar.r\source\Repos\DSA\Jewelsandstones\obj\Debug\Jewelsandstones.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\Jewelsandstones\obj\Debug\Jewelsandstones.exe
+C:\Users\shobankumar.r\source\Repos\DSA\Jewelsandstones\obj\Debug\Jewelsandstones.pdb

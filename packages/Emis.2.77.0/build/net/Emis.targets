@@ -1,0 +1,68 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Choose>
+		<When Condition="$(EmisDevelopmentOutputRelativePath) != ''">
+			<Choose>
+				<When Condition="$(TeamBuildOutDir) != ''">
+					<PropertyGroup>
+						<EmisDevelopmentPath>$(OutDir)$(EmisDevelopmentOutputRelativePath)</EmisDevelopmentPath>
+					</PropertyGroup>
+				</When>
+				<Otherwise>
+					<PropertyGroup>
+						<EmisDevelopmentPath>$([MSBuild]::Escape($([System.IO.Path]::GetFullPath(`$([System.IO.Path]::Combine(`$(MSBuildProjectDirectory)`, `$(EmisRelativeOutputPath)`, `$(EmisDevelopmentOutputRelativePath)`))`))))</EmisDevelopmentPath>
+					</PropertyGroup>
+				</Otherwise>
+			</Choose>
+		</When>
+	</Choose>
+	<UsingTask AssemblyFile="$(EmisDevelopmentPath)Emis.Composition.Generation.Build.dll" TaskName="Emis.Composition.Generation.Build.Task"/>
+	<UsingTask AssemblyFile="$(EmisDevelopmentPath)solutionvalidator.exe" TaskName="Emis.Build.Solutions.Validation.Task"/>
+
+	<PropertyGroup Condition="$(CodeContractsRunCodeAnalysis) != 'true'">
+		<EmisCodeContractsMsBuildVersion Condition="'$(VisualStudioVersion)' == '14'">14.0</EmisCodeContractsMsBuildVersion>
+		<EmisCodeContractsMsBuildVersion Condition="'$(VisualStudioVersion)' == '12'">12.0</EmisCodeContractsMsBuildVersion>
+		<EmisCodeContractsMsBuildVersion Condition="'$(VisualStudioVersion)' == '11'">4.0</EmisCodeContractsMsBuildVersion>
+		<EmisCodeContractsPath Condition="'$(EmisCodeContractsPath)' == ''">$(MSBuildThisFileDirectory)CodeContracts\</EmisCodeContractsPath>
+		<CodeContractsInstallDir>$(EmisCodeContractsPath)</CodeContractsInstallDir>
+		<EmisCodeContractsTargetsPath>$(CodeContractsInstallDir)MsBuild\v$(EmisCodeContractsMsBuildVersion)\Microsoft.CodeContracts.targets</EmisCodeContractsTargetsPath>
+	</PropertyGroup>
+	<Import Condition="$(CodeContractsRunCodeAnalysis) != 'true' and '$(EmisCodeContractsMsBuildVersion)' != '' and Exists('$(EmisCodeContractsTargetsPath)')" Project="$(EmisCodeContractsTargetsPath)"/>
+	<Target Name="EnsureContractReferenceAssemblyOfDependeeProjects">
+		<!-- Overwrite target from previous import that would otherwise display warnings when contract reference assemblies are not found. -->
+	</Target>
+	<Target Condition="$(CodeContractsRunCodeAnalysis) == 'true' and $(CodeContractsImported) != 'true'" BeforeTargets="PrepareForBuild" Name="EmisCodeContractsRunCodeAnalysisWhenNotImported">
+		<Error Text="To run its static analysis you must have Code Contracts installed."/>
+	</Target>
+	<Target Condition="$(CodeContractsRunCodeAnalysis) == 'true' and $(CodeContractsImported) == 'true'" BeforeTargets="PrepareForBuild" Name="EmisCodeContractsRunCodeAnalysisVersion">
+		<GetAssemblyIdentity AssemblyFiles="$(CodeContractsInstallDir)bin\ccrewrite.exe">
+			<Output TaskParameter="Assemblies" ItemName="CodeContractsInstallAssemblyInformation" />
+		</GetAssemblyIdentity>
+		<GetAssemblyIdentity AssemblyFiles="$(CodeContractsInstallDir)bin\ccrewrite.exe">
+			<Output TaskParameter="Assemblies" ItemName="CodeContractsPackageAssemblyInformation" />
+		</GetAssemblyIdentity>
+		<PropertyGroup>
+			<CodeContractsInstallVersion>$([System.Version]::new('%(CodeContractsInstallAssemblyInformation.Version)'))</CodeContractsInstallVersion>
+			<CodeContractsPackgeVersion>$([System.Version]::new('%(CodeContractsPackageAssemblyInformation.Version)'))</CodeContractsPackgeVersion>
+		</PropertyGroup>
+		<Error Condition="$(CodeContractsInstallVersion.CompareTo($(CodeContractsPackgeVersion))) &lt; 0" Text="The installed version of Code Contracts is $(CodeContractsInstallVersion) to run static analysis it must be equal or greater than the package version of $(CodeContractsPackgeVersion)."/>
+	</Target>
+
+	<Import Project="$(MSBuildThisFileDirectory)StyleCop\StyleCop.targets" />
+
+	<Target BeforeTargets="AfterBuild" Condition="$(TeamBuildOutDir) != '' and $(EmisPostProjectPropertyImported) != true" Name="EmisTeamBuildOutDirAndPostProjectPropertyImportCheck">
+		<Error Text="The TeamBuildOutDir property has been specified, but the post project props file has not been imported."/>
+	</Target>
+
+	<Target BeforeTargets="AfterBuild" Condition="$(Configuration) == 'No Analysis'" Name="EmisNoAnalysisConfigurationAndPostProjectPropertyImportCheck">
+		<Warning Condition="$(StyleCopEnabled)" Text="Style Cop has run even though the build is in the 'No Analysis' configuration."/>
+	</Target>
+
+	<Import Project="CodeAnalysis\Emis.CodeAnalysis.targets" />
+
+	<Target BeforeTargets="AfterBuild" Name="EmisBeforeAfterBuild">
+		<Emis.Composition.Generation.Build.Task Assembly="$(TargetPath)" Condition="'$(EmisComposition)' == 'true'"/>
+		<Emis.Build.Solutions.Validation.Task Condition="$(SolutionPath) != '*Undefined*' and $(EmisValidateSolution) != 'false' and '$(ProjectGuid)' != ''" ProjectGuid="$(ProjectGuid)" SolutionPath="$(SolutionPath)"/>
+	</Target>
+	<Import Project="Emis.NuGet.targets"/>
+	<Import Project="..\Emis.WeavingAndWebRazorGenerators.targets"/>
+</Project>

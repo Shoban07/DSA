@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<EmisVisualStudioGenerationPackageFolder Condition="'$(EmisVisualStudioGenerationPackageFolder)' == ''">$(MSBuildThisFileDirectory)..\</EmisVisualStudioGenerationPackageFolder>
+		<EmisVisualStudioGenerationAssemblyFolder Condition="'$(EmisVisualStudioGenerationAssemblyFolder)' == ''">$(EmisVisualStudioGenerationPackageFolder)lib\net45\</EmisVisualStudioGenerationAssemblyFolder>
+		<EmisVisualStudioGenerationValidationAfterTargets>ResolveAssemblyReferences</EmisVisualStudioGenerationValidationAfterTargets>
+		<EmisVisualStudioGenerationValidationAfterTargets Condition="$(EmisVisualStudioGenerationUpdateInvalid) != true">Build</EmisVisualStudioGenerationValidationAfterTargets>
+		<EmisVisualStudioGenerationValidationBeforeTargets Condition="$(EmisVisualStudioGenerationUpdateInvalid) == true">Compile</EmisVisualStudioGenerationValidationBeforeTargets>
+	</PropertyGroup>
+	<UsingTask
+		AssemblyFile="$(EmisVisualStudioGenerationAssemblyFolder)Emis.VisualStudio.Generation.dll"
+		TaskName="Emis.VisualStudio.Generation.Validation.Task" />
+	<Target
+		AfterTargets="$(EmisVisualStudioGenerationValidationAfterTargets)"
+		BeforeTargets="$(EmisVisualStudioGenerationValidationBeforeTargets)"
+		Condition="$(EmisVisualStudioGenerationValidationEnabled) != 'false'"
+		Name="EmisVisualStudioGenerationValidation">
+		<ItemGroup>
+			<ItemsWithEmisGenerator
+				Condition="'%(None.Generator)' == 'EMIS' or '%(Compile.Generator)' == 'EMIS'"
+				Include="@(None);@(Compile)" />
+		</ItemGroup>
+		<PropertyGroup>
+			<GeneratorCount>@(EmisVisualStudioGenerator-&gt;Count())</GeneratorCount>
+			<ItemsWithEmisGeneratorCount>@(ItemsWithEmisGenerator-&gt;Count())</ItemsWithEmisGeneratorCount>
+		</PropertyGroup>
+		<Message Importance="high" Text="$(GeneratorCount) EMIS Visual Studio generator(s)." />
+		<Message Importance="high" Text="$(ItemsWithEmisGeneratorCount) item(s) using a EMIS Visual Studio generator." />
+		<Emis.VisualStudio.Generation.Validation.Task
+			Condition="$(GeneratorCount) &gt; 0 and $(ItemsWithEmisGeneratorCount) &gt; 0"
+			Generators="@(EmisVisualStudioGenerator)"
+			Items="@(ItemsWithEmisGenerator)"
+			ProjectPath="$(ProjectPath)"
+			ReferencedAssemblies="@(ReferencePath)"
+			UpdateInvalid="$(EmisVisualStudioGenerationUpdateInvalid)"/>
+	</Target>
+</Project>

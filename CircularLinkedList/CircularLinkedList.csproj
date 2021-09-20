@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Emis.2.77.0\build\net\Emis.props" Condition="Exists('..\packages\Emis.2.77.0\build\net\Emis.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <AssemblyName>CircularLinkedList</AssemblyName>
+    <OutputPath>..\</OutputPath>
+    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{EE4A4394-7E81-440C-A839-FFDEC99E32CB}</ProjectGuid>
+    <ProjectTypeGuids>{F3FA6C37-9BAE-4639-9728-3B960B31B72D};{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <RootNamespace>CircularLinkedList</RootNamespace>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <StyleCopEnabled>false</StyleCopEnabled>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Code Contracts'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'No Analysis'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <Import Project="$(EmisPostProjectPropertyImportPath)" Condition="Exists($(EmisPostProjectPropertyImportPath))" />
+  <ItemGroup>
+    <Reference Include="Emis.Net40, Version=2.77.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Emis.2.77.0\lib\net40\Emis.Net40.dll</HintPath>
+    </Reference>
+    <Reference Include="Emis.UX, Version=1.11.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Emis.UX.1.11.1\lib\net40\Emis.UX.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="packages.config" />
+    <None Include="Settings.StyleCop" />
+    <ApplicationDefinition Include="Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Application.xaml.cs">
+      <DependentUpon>Application.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="StartUpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="StartUpWindow.xaml.cs">
+      <DependentUpon>StartUpWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Emis.2.77.0\build\net\Emis.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Emis.2.77.0\build\net\Emis.props'))" />
+    <Error Condition="!Exists('..\packages\Emis.2.77.0\build\net\Emis.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Emis.2.77.0\build\net\Emis.targets'))" />
+    <Error Condition="!Exists('..\packages\Emis.UX.1.11.1\build\Emis.UX.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Emis.UX.1.11.1\build\Emis.UX.targets'))" />
+  </Target>
+  <Import Project="..\packages\Emis.2.77.0\build\net\Emis.targets" Condition="Exists('..\packages\Emis.2.77.0\build\net\Emis.targets')" />
+  <Import Project="..\packages\Emis.UX.1.11.1\build\Emis.UX.targets" Condition="Exists('..\packages\Emis.UX.1.11.1\build\Emis.UX.targets')" />
+</Project>

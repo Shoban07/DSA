@@ -1,0 +1,53 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<EmisPostProjectPropertyImported>true</EmisPostProjectPropertyImported>
+		<EmisRelativeOutputPath>$([MSBuild]::ValueOrDefault(`$(WebProjectOutputDir)`, `$(OutputPath)`))</EmisRelativeOutputPath>
+		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch Condition="$(ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch) == '' and $(ProjectTypeGuids.ToLower().Contains('3ac096d0-a1c2-e12c-1390-a8335801fdab'))">Error</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+	</PropertyGroup>
+	<PropertyGroup>
+		<OutDir Condition="$(TeamBuildOutDir) != '' and !$(EmisRelativeOutputPath.StartsWith($(TeamBuildOutDir)))">$(TeamBuildOutDir)\$(EmisRelativeOutputPath.Replace('..\', ''))</OutDir>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration) == 'No Analysis'">
+		<RunCodeAnalysis>false</RunCodeAnalysis>
+		<StyleCopEnabled>false</StyleCopEnabled>
+	</PropertyGroup>
+	<Choose>
+		<When Condition="'$(CodeContractsEnabled)' == 'true'">
+			<PropertyGroup>
+				<CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+				<CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+				<CodeContractsExtraRewriteOptions>-keepOriginalFiles -ignoreMetadataErrors</CodeContractsExtraRewriteOptions>
+				<CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
+				<CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+				<CodeContractsRuntimeCheckingLevel>Preconditions</CodeContractsRuntimeCheckingLevel>
+				<CodeContractsRuntimeOnlyPublicSurface>True</CodeContractsRuntimeOnlyPublicSurface>
+				<CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+				<CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+			</PropertyGroup>
+			<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Code Contracts|AnyCPU'">
+				<CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+				<CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+				<CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+				<CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+				<CodeContractsEnumObligations>False</CodeContractsEnumObligations>
+				<CodeContractsRedundantAssumptions>True</CodeContractsRedundantAssumptions>
+				<CodeContractsInferRequires>False</CodeContractsInferRequires>
+				<CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+				<CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+				<CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
+				<CodeContractsSuggestRequires>True</CodeContractsSuggestRequires>
+				<CodeContractsSuggestObjectInvariants>True</CodeContractsSuggestObjectInvariants>
+				<CodeContractsSuggestAssumptionsForCallees>False</CodeContractsSuggestAssumptionsForCallees>
+				<CodeContractsSuggestReadonly>True</CodeContractsSuggestReadonly>
+				<CodeContractsDisjunctiveRequires>False</CodeContractsDisjunctiveRequires>
+				<CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+				<CodeContractsShowSquigglies>True</CodeContractsShowSquigglies>
+				<CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+				<CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+				<CodeContractsExtraAnalysisOptions>-clearCache</CodeContractsExtraAnalysisOptions>
+				<CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+				<CodeContractsAnalysisWarningLevel>3</CodeContractsAnalysisWarningLevel>
+			</PropertyGroup>
+		</When>
+	</Choose>
+</Project>

@@ -1,0 +1,7 @@
+C:\Users\shobankumar.r\source\Repos\DSA\AllSortingAlgo\bin\Debug\AllSortingAlgo.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\AllSortingAlgo\bin\Debug\AllSortingAlgo.exe
+C:\Users\shobankumar.r\source\Repos\DSA\AllSortingAlgo\bin\Debug\AllSortingAlgo.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\AllSortingAlgo\obj\Debug\AllSortingAlgo.csprojAssemblyReference.cache
+C:\Users\shobankumar.r\source\Repos\DSA\AllSortingAlgo\obj\Debug\AllSortingAlgo.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\AllSortingAlgo\obj\Debug\AllSortingAlgo.exe
+C:\Users\shobankumar.r\source\Repos\DSA\AllSortingAlgo\obj\Debug\AllSortingAlgo.pdb

@@ -1,0 +1,24 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<UsingTask AssemblyFile="$(EmisDevelopmentPath)Emis.Nuget.PackAndPushTask.dll" TaskName="Emis.Nuget.PackAndPushTask"/>
+	<Target Condition="$(EmisNuGetPackEnabled) != '' and $(EmisNuGetPackEnabled)" Name="EmisNuGetPack" BeforeTargets="AfterBuild">
+		<MakeDir Condition="$(EmisNuGetPackageOutputRelativePath) != ''" Directories="$(TargetDir)$(EmisNuGetPackageOutputRelativePath)" />
+		<PropertyGroup>
+			<EmisNuGetPackageAnalyse Condition="$(EmisNuGetPackageAnalyse) == ''">true</EmisNuGetPackageAnalyse>
+			<EmisNuGetPackageAssemblyPath Condition="$(EmisNuGetPackageAssemblyPath) == ''">$(TargetPath)</EmisNuGetPackageAssemblyPath>
+			<EmisNuGetPackagePrereleaseVersionNumber Condition="$(EmisNuGetPackagePrereleaseVersion) == '' and $(TeamBuildSourceVersion) != ''">$(TeamBuildSourceVersion.TrimStart('C'))</EmisNuGetPackagePrereleaseVersionNumber>
+			<EmisNuGetPushEnabled Condition="$(EmisNuGetPushEnabled) == '' and ($(EmisNuGetPackageSourceFolderPath) != '' or $(TeamBuildSourceVersion) != '')">true</EmisNuGetPushEnabled>
+			<EmisNuGetPushOverwriteFailureAnError Condition="$(EmisNuGetPackageHasAlreadyDeployedVersionErrorEnabled) != false">true</EmisNuGetPushOverwriteFailureAnError>
+		</PropertyGroup>
+		<Emis.Nuget.PackAndPushTask
+			AssemblyFilePath="$(EmisNuGetPackageAssemblyPath)"
+			FolderPath="$(TargetDir)"
+			IsAnalyseEnabled="$(EmisNuGetPackageAnalyse)"
+			IsPushEnabled="$(EmisNuGetPushEnabled)"
+			IsPushOverwriteFailureAnError="$(EmisNuGetPushOverwriteFailureAnError)"
+			Name="$(EmisNuGetPackageName)"
+			OutputFolderPath="$(EmisNuGetPackageOutputRelativePath)"
+			PrereleaseVersionName="$(EmisNuGetPackagePrereleaseVersionName)$(EmisNuGetPackagePrereleaseVersion)"
+			PrereleaseVersionNumber="$(EmisNuGetPackagePrereleaseVersionNumber)"
+			ReleaseVersion="$(EmisNuGetPackageReleaseVersion)"/>
+	</Target>
+</Project>

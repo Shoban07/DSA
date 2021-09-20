@@ -1,0 +1,7 @@
+C:\Users\shobankumar.r\source\Repos\DSA\DoublyLinkedList\bin\Debug\DoublyLinkedList.exe.config
+C:\Users\shobankumar.r\source\Repos\DSA\DoublyLinkedList\bin\Debug\DoublyLinkedList.exe
+C:\Users\shobankumar.r\source\Repos\DSA\DoublyLinkedList\bin\Debug\DoublyLinkedList.pdb
+C:\Users\shobankumar.r\source\Repos\DSA\DoublyLinkedList\obj\Debug\DoublyLinkedList.csprojAssemblyReference.cache
+C:\Users\shobankumar.r\source\Repos\DSA\DoublyLinkedList\obj\Debug\DoublyLinkedList.csproj.CoreCompileInputs.cache
+C:\Users\shobankumar.r\source\Repos\DSA\DoublyLinkedList\obj\Debug\DoublyLinkedList.exe
+C:\Users\shobankumar.r\source\Repos\DSA\DoublyLinkedList\obj\Debug\DoublyLinkedList.pdb

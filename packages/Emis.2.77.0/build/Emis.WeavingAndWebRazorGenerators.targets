@@ -1,0 +1,18 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<EmisDevelopmentAssembly>$(EmisDevelopmentPath)Emis.Development.dll</EmisDevelopmentAssembly>
+		<EmisVisualStudioGenerationAssemblyFolder Condition="'$(EmisVisualStudioGenerationAssemblyFolder)' == ''">$(EmisDevelopmentPath)</EmisVisualStudioGenerationAssemblyFolder>
+		<EmisVisualStudioGenerationTargets>$(MSBuildThisFileDirectory)Emis.VisualStudio.Generation.targets</EmisVisualStudioGenerationTargets>
+	</PropertyGroup>
+	<ItemGroup>
+		<EmisVisualStudioGenerator Include="$(EmisDevelopmentAssembly)">
+			<TypeFullName>Emis.Weaving.Syntactic.Generator</TypeFullName>
+		</EmisVisualStudioGenerator>
+		<EmisVisualStudioGenerator Include="$(EmisDevelopmentAssembly)">
+			<TypeFullName>Emis.Web.Razor.Generation.Generator</TypeFullName>
+		</EmisVisualStudioGenerator>
+	</ItemGroup>
+	<Import
+		Condition="Exists('$(EmisVisualStudioGenerationTargets)')"
+		Project="$(EmisVisualStudioGenerationTargets)"/>
+</Project>
