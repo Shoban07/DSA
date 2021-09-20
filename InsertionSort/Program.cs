@@ -45,6 +45,7 @@ namespace InsertionSort
 	{
 		static void Main(string[] args)
 		{
+			//sample output
 			int[] givenArray = new int[] { 5,4,5,1,6,2};
 			InsertionSort ins = new InsertionSort();
 			Console.WriteLine("[{0}]", string.Join(",", ins.InsertSort(givenArray)));
